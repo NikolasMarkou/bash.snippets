@@ -8,7 +8,9 @@ pv file.tgz | tar xzf - -C target_directory
 ```
 This will show elapsed time, percentage completed with a progress bar and an estimated time to completion (ETA), something like this
 
+```bash
 1.16MB 0:00:20 [6.06MB/s] [==================>               ] 55%  ETA 0:00:37
+```
 
 # Nicer progress bar using dialog
 The command above showed very useful, 
@@ -26,7 +28,9 @@ do
 done
 ) | dialog --gauge "Progress" 10 40
 ```
+
 And this is the command to show the progress of file extraction using pv and dialog:
+
 ```bash
 $ (pv -n file.tgz | tar xzf - -C target_directory ) 2>&1 | dialog --gauge "Extracting file..." 6 50
 ```
